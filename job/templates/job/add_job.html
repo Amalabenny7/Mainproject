@@ -1,0 +1,470 @@
+{##}
+{#{% extends 'temp/adminbase.html' %}#}
+{#{% block base %}#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{#<center>#}
+{#	<form method="post" enctype="multipart/form-data">#}
+{#        {% csrf_token %}#}
+{#		<h2>Add job</h2>#}
+{#		<table>#}
+{#			<tr>#}
+{#				<td>Job title</td>#}
+{#				<td><input type="text" name="n" required value="{{ r. }}"></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>description</td>#}
+{#                <td><textarea name="des" ></textarea></td>#}
+{#			</tr>#}
+{#            <tr>#}
+{#				<td>Qualification</td>#}
+{#				<td><input type="text" name="quali" required></td>#}
+{#			</tr>#}
+{#             <tr>#}
+{#				<td>Type</td>#}
+{#				<td><input type="text" name="type" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>Number of vacancy</td>#}
+{#				<td><input type="text" name="vacancy" required></td>#}
+{#			</tr>#}
+{#            <tr>#}
+{#				<td>Gender</td>#}
+{#				<td><input type="text" name="gender" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>Age</td>#}
+{#				<td><input type="text" name="age" required ></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>Experience</td>#}
+{#				<td><input type="text" name="ex" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>Salary</td>#}
+{#				<td><input type="text" name="Salary" required></td>#}
+{#			</tr>#}
+{#            <tr>#}
+{#				<td>Working Time</td>#}
+{#				<td><input type="text" name="time" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>company name</td>#}
+{#				<td><input type="text" name="company name" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>company details</td>#}
+{#				<td><input type="text" name="cdet" required></td>#}
+{#			</tr>#}
+{#            <tr>#}
+{#				<td>Location</td>#}
+{#				<td><input type="text" name="loc" required></td>#}
+{#			</tr>#}
+{#            <tr>#}
+{#				<td>Last Date</td>#}
+{#				<td><input type="date" name="date" required></td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#                <td></td>#}
+{#				<td><input type="submit" value="add" required></td>#}
+{#			</tr>#}
+{#		</table>#}
+{#	</form>#}
+{#</center>#}
+{#{% if msg %}#}
+{#<script>#}
+{#    alert('successfull')#}
+{#</script>#}
+{#{% endif %}#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% extends 'temp/adminbase.html' %}#}
+{#{% block base %}#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#    <title>Add Job</title>#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <style>#}
+{#        body {#}
+{#            background: linear-gradient(135deg, #1e3c72, #2a5298);#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            font-family: 'Poppins', sans-serif;#}
+{#        }#}
+{#        .form-wrapper {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            min-height: 100vh;#}
+{#            padding-top: 20px;#}
+{#        }#}
+{#        .form-container {#}
+{#            background: white;#}
+{#            padding: 40px;#}
+{#            border-radius: 12px;#}
+{#            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);#}
+{#            width: 100%;#}
+{#            max-width: 550px;#}
+{#            transition: 0.3s;#}
+{#            position: relative;#}
+{#        }#}
+{#        .form-container:hover {#}
+{#            transform: translateY(-5px);#}
+{#        }#}
+{#        .form-container h2 {#}
+{#            color: #1e3c72;#}
+{#            font-size: 28px;#}
+{#            font-weight: bold;#}
+{#            text-align: center;#}
+{#            padding: 15px 0;#}
+{#            background: linear-gradient(to right, #1e3c72, #2a5298);#}
+{#            -webkit-background-clip: text;#}
+{#            -webkit-text-fill-color: transparent;#}
+{#        }#}
+{#        .form-control {#}
+{#            border-radius: 8px;#}
+{#            padding: 10px;#}
+{#            font-size: 16px;#}
+{#            transition: 0.3s;#}
+{#        }#}
+{#        .form-control:focus {#}
+{#            border-color: #2a5298;#}
+{#            box-shadow: 0 0 10px rgba(42, 82, 152, 0.2);#}
+{#        }#}
+{#        .btn-primary {#}
+{#            border-radius: 8px;#}
+{#            background-color: #1e3c72;#}
+{#            border: none;#}
+{#            transition: 0.3s;#}
+{#            font-size: 18px;#}
+{#            padding: 12px;#}
+{#            font-weight: 500;#}
+{#        }#}
+{#        .btn-primary:hover {#}
+{#            background-color: #2a5298;#}
+{#            box-shadow: 0 4px 10px rgba(42, 82, 152, 0.3);#}
+{#        }#}
+{#        .mb-3 label {#}
+{#            font-weight: 600;#}
+{#            color: #444;#}
+{#            display: block;#}
+{#            text-align: left;#}
+{#            font-size: 16px;#}
+{#            margin-bottom: 5px;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <div class="form-wrapper">#}
+{#        <div class="form-container">#}
+{#            <h2>Add Job</h2>#}
+{#            <form method="post" enctype="multipart/form-data">#}
+{#                {% csrf_token %}#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Job Title</label>#}
+{#                    <input type="text" name="n" required class="form-control" placeholder="Enter job title">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Description</label>#}
+{#                    <textarea name="des" class="form-control" placeholder="Enter job description"></textarea>#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Qualification</label>#}
+{#                    <input type="text" name="quali" required class="form-control" placeholder="Enter qualification">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Type</label>#}
+{#                    <input type="text" name="type" required class="form-control" placeholder="Enter job type">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Number of Vacancy</label>#}
+{#                    <input type="text" name="vacancy" required class="form-control" placeholder="Enter number of vacancies">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Gender</label>#}
+{#                    <input type="text" name="gender" required class="form-control" placeholder="Enter preferred gender">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Age</label>#}
+{#                    <input type="text" name="age" required class="form-control" placeholder="Enter age range">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Experience</label>#}
+{#                    <input type="text" name="ex" required class="form-control" placeholder="Enter experience requirements">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Salary</label>#}
+{#                    <input type="text" name="Salary" required class="form-control" placeholder="Enter salary">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Working Time</label>#}
+{#                    <input type="text" name="time" required class="form-control" placeholder="Enter working hours">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Company Name</label>#}
+{#                    <input type="text" name="company name" required class="form-control" placeholder="Enter company name">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Company Details</label>#}
+{#                    <input type="text" name="cdet" required class="form-control" placeholder="Enter company details">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Location</label>#}
+{#                    <input type="text" name="loc" required class="form-control" placeholder="Enter job location">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Last Date</label>#}
+{#                    <input type="date" name="date" required class="form-control" min="{{ dt }}">#}
+{#                </div>#}
+{#                <button type="submit" class="btn btn-primary w-100">Add Job</button>#}
+{##}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{#<input type="date" id="dateInput" min="" />#}
+{#<script>#}
+{#  // Get today's date in YYYY-MM-DD format#}
+{#  let today = new Date().toISOString().split("T")[0];#}
+{##}
+{#  // Set the minimum date to today#}
+{#  document.getElementById("dateInput").setAttribute("min", today);#}
+{#</script>#}
+{##}
+{#    {% if msg %}#}
+{#    <script>#}
+{#        alert('Job added successfully!');#}
+{##}
+{#    </script>#}
+{#    {% endif %}#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+
+{% extends 'temp/adminbase.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Job</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 550px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+        .form-container h2 {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 10px rgba(42, 82, 152, 0.2);
+        }
+        .btn-primary {
+            border-radius: 8px;
+            background-color: #1e3c72;
+            border: none;
+            transition: 0.3s;
+            font-size: 18px;
+            padding: 12px;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #2a5298;
+            box-shadow: 0 4px 10px rgba(42, 82, 152, 0.3);
+        }
+        .mb-3 label {
+            font-weight: 600;
+            color: #444;
+            display: block;
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h2>Add Job</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" name="n" required class="form-control" placeholder="Enter job title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="des" class="form-control" placeholder="Enter job description"></textarea>
+                </div>
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">Qualification</label>#}
+{#                    <select name="quali" required class="form-control" placeholder="Enter qualification">#}
+{#                        <option>select qualification</option>#}
+{#                        <option value="bcom">bcom</option>#}
+{#                        <option value="mcom">mcom</option>#}
+{##}
+{#                    </select> </div>#}
+                <div class="mb-3">
+    <label class="form-label">Qualification</label>
+    <select name="quali" id="qualification" required class="form-control" onchange="toggleOtherQualification()">
+        <option value="">Select qualification</option>
+        <option value="bcom">BCom</option>
+        <option value="mcom">MCom</option>
+        <option value="Bca">Bca</option>
+        <option value="Mca">Mca</option>
+        <option value="Bba">Bba</option>
+        <option value="Mba">Mba</option>
+        <option value="Btech">Btech</option>
+        <option value="Mtech">Mtech</option>
+        <option value="plustwo">plustwo</option>
+        <option value="sslc">sslc</option>
+        <option value="other">Other</option>
+    </select>
+</div>
+
+<div class="mb-3" id="otherQualificationDiv" style="display: none;">
+    <label class="form-label">Other Qualification</label>
+    <input type="text" name="other_quali" id="otherQualification" class="form-control" placeholder="Enter other qualification">
+</div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Type</label>
+                    <input type="text" name="type" required class="form-control" placeholder="Enter job type">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Number of Vacancy</label>
+                    <input type="text" name="vacancy" required class="form-control" placeholder="Enter number of vacancies">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <input type="text" name="gender" required class="form-control" placeholder="Enter preferred gender">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Age</label>
+                    <input type="text" name="age" required class="form-control" placeholder="Enter age range">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Experience</label>
+                    <input type="text" name="ex" required class="form-control" placeholder="Enter experience requirements">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Salary</label>
+                    <input type="text" name="Salary" required class="form-control" placeholder="Enter salary">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Working Time</label>
+                    <input type="text" name="time" required class="form-control" placeholder="Enter working hours">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" name="company_name" required class="form-control" placeholder="Enter company name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Company Details</label>
+                    <input type="text" name="cdet" required class="form-control" placeholder="Enter company details">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input type="text" name="loc" required class="form-control" placeholder="Enter job location">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Last Date</label>
+                    <input type="date" id="dateInput" name="date" required class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Assign Staff</label>
+                    <select name="staff" required class="form-control">
+                        <option value="">-- Select Staff --</option>
+                        {% for i in sf %}
+                        <option value="{{ i.staff_id }}">{{ i.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Add Job</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let today = new Date().toISOString().split("T")[0];
+        document.getElementById("dateInput").setAttribute("min", today);
+      });
+    </script>
+
+    <script>
+    function toggleOtherQualification() {
+        var qualification = document.getElementById("qualification").value;
+        var otherQualificationDiv = document.getElementById("otherQualificationDiv");
+
+        if (qualification === "other") {
+            otherQualificationDiv.style.display = "block";
+            document.getElementById("otherQualification").setAttribute("required", "true");
+        } else {
+            otherQualificationDiv.style.display = "none";
+            document.getElementById("otherQualification").removeAttribute("required");
+        }
+    }
+</script>
+
+    {% if msg %}
+    <script>
+        alert('Job added successfully!');
+    </script>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

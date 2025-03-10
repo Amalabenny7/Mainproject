@@ -1,0 +1,99 @@
+{% extends 'temp/homebase.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+        }
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: calc(100vh - 70px); /* Adjust height to fit below navbar */
+            padding-top: 80px; /* Space for the navbar */
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Blur effect */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            color: white; /* Text color for better contrast */
+        }
+        .form-control {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.3); /* Transparent input fields */
+            border: none;
+            color: white;
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-primary {
+            border-radius: 8px;
+            background-color: #667eea;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #764ba2;
+        }
+        .forgot-password {
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: white;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h2 class="mb-3">Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="un" required class="form-control" placeholder="Enter your username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="ps" required class="form-control" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+{#                <div class="forgot-password">#}
+{#                    <a href="#">Forgot Password?</a>#}
+{#                </div>#}
+            </form>
+        <script>
+            {% if msg %}
+
+                alert("{{msg}}");
+
+            {% endif %}
+        </script>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
+
+
+
